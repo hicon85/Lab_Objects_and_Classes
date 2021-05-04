@@ -1,0 +1,28 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+namespace _01.Randomize_Words
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] words = Console.ReadLine()
+               .Split();
+
+            Random rnd = new Random();
+
+            for (int i = 0; i < words.Length; i++)
+            {
+                int goodJob = rnd.Next(words.Length);
+
+                string word = words[i];
+                words[i] = words[goodJob];
+                words[goodJob] = word;
+            }
+
+            Console.WriteLine(string.Join(Environment.NewLine,words));
+        }
+    }
+}
